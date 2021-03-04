@@ -19,7 +19,10 @@ import Button from '@material-ui/core/Button';
 import AppBar from '@material-ui/core/AppBar';
 import IconButton from '@material-ui/core/IconButton';
 import Popover from '@material-ui/core/Popover';
+import MenuList from '@material-ui/core/MenuList';
+import MenuItem from '@material-ui/core/MenuItem';
 import MenuIcon from '@material-ui/icons/Menu';
+import CloseIcon from '@material-ui/icons/Close';
 
 import theme from '../src/theme';
 import 'nprogress/nprogress.css';
@@ -44,6 +47,13 @@ const useStyles = makeStyles((theme) => ({
   },
   navCta: {
     marginLeft: theme.spacing(1.5),
+  },
+  menuClose: {
+    position: 'absolute',
+    top: 0,
+    right: 0,
+    zIndex: 1,
+    margin: theme.spacing(1),
   }
 }));
 
@@ -129,10 +139,29 @@ export default function MyApp(props) {
                     vertical: 'top',
                     horizontal: 'right',
                   }}
+                  PaperProps={{
+                    style: { width: '100%' }
+                  }}
                 >
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae debitis dolorem eligendi est eum ex explicabo facilis fuga, ipsum iusto laborum magnam mollitia nostrum omnis quam quia quo voluptates?
-                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam beatae debitis dolorem eligendi est eum ex explicabo facilis fuga, ipsum iusto laborum magnam mollitia nostrum omnis quam quia quo voluptates?
-                  Lorem ipsum dolor sit amet, con sectetur adipisicing elit. Aliquam beatae debitis dolorem eligendi est eum ex explicabo facilis fuga, ipsum iusto laborum magnam mollitia nostrum omnis quam quia quo voluptates?
+                  <div style={{ position: 'relative' }}>
+                    <IconButton
+                      color="inherit"
+                      aria-label="close"
+                      onClick={handleMenuClose}
+                      className={classes.menuClose}
+                    >
+                      <CloseIcon />
+                    </IconButton>
+                    <MenuList
+                      autoFocusItem={open}
+                    >
+                      <MenuItem onClick={handleMenuClose}>Blog</MenuItem>
+                      <MenuItem onClick={handleMenuClose}>Events</MenuItem>
+                      <MenuItem onClick={handleMenuClose} component={Link} href="/play">Play</MenuItem>
+                      <MenuItem onClick={handleMenuClose} component={Link} href="/rules">Rules</MenuItem>
+                      <MenuItem onClick={handleMenuClose} component={Link} href="/staff">Staff</MenuItem>
+                    </MenuList>
+                  </div>
                 </Popover>
               </Hidden>
             </Toolbar>

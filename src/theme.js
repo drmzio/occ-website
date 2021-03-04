@@ -6,7 +6,7 @@ const defaultTheme = createMuiTheme();
 // Create the theme instance
 const theme = createMuiTheme({
   palette: {
-    primary: blue,
+    primary: red,
     error: {
       main: red.A400,
     },

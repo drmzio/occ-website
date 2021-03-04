@@ -54,6 +54,7 @@ const useStyles = makeStyles((theme) => ({
     right: 0,
     zIndex: 1,
     margin: theme.spacing(1),
+    backgroundColor: theme.palette.action.hover,
   }
 }));
 
@@ -155,12 +156,27 @@ export default function MyApp(props) {
                     <MenuList
                       autoFocusItem={open}
                     >
-                      <MenuItem onClick={handleMenuClose}>Blog</MenuItem>
-                      <MenuItem onClick={handleMenuClose}>Events</MenuItem>
-                      <MenuItem onClick={handleMenuClose} component={Link} href="/play">Play</MenuItem>
-                      <MenuItem onClick={handleMenuClose} component={Link} href="/rules">Rules</MenuItem>
-                      <MenuItem onClick={handleMenuClose} component={Link} href="/staff">Staff</MenuItem>
+                      <MenuItem onClick={handleMenuClose} activeClassName="Mui-selected">
+                        Blog
+                      </MenuItem>
+                      <MenuItem onClick={handleMenuClose} activeClassName="Mui-selected">
+                        Events
+                      </MenuItem>
+                      {/*<MenuItem onClick={handleMenuClose} component={Link} href="/play" activeClassName="Mui-selected">
+                        Play
+                      </MenuItem>*/}
+                      <MenuItem onClick={handleMenuClose} component={Link} href="/rules" activeClassName="Mui-selected">
+                        Rules
+                      </MenuItem>
+                      <MenuItem onClick={handleMenuClose} component={Link} href="/staff" activeClassName="Mui-selected">
+                        Staff
+                      </MenuItem>
                     </MenuList>
+                    <Box sx={{ px: 2, pb: 2 }}>
+                      <Button color="primary" variant="contained" size="large" component={Link} href="/play" fullWidth onClick={handleMenuClose}>
+                        Play Now
+                      </Button>
+                    </Box>
                   </div>
                 </Popover>
               </Hidden>

@@ -17,7 +17,17 @@ const theme = createMuiTheme({
   shape: {
     borderRadius: 6
   },
+  zIndex: {
+    appBar: 1030,
+  },
   components: {
+    MuiCssBaseline: {
+      styleOverrides: {
+        body: {
+          letterSpacing: null,
+        }
+      }
+    },
     MuiTypography: {
       styleOverrides: {
         root: { letterSpacing: 0 },
@@ -39,7 +49,8 @@ const theme = createMuiTheme({
     MuiTooltip: {
       defaultProps: {
         placement: 'top',
-        arrow: true
+        arrow: true,
+        disableInteractive: true,
       },
       styleOverrides: {
         arrow: {

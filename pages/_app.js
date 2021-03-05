@@ -153,9 +153,7 @@ export default function MyApp(props) {
                     >
                       <CloseIcon />
                     </IconButton>
-                    <MenuList
-                      autoFocusItem={open}
-                    >
+                    <MenuList>
                       <MenuItem onClick={handleMenuClose} activeClassName="Mui-selected">
                         Blog
                       </MenuItem>
